@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block content %}
+    <p class="text-right"><a href="{% url 'schema-create' %}" class="btn btn-success">Create</a></p>
+    <table class="table table-hover">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Title</th>
+            <th>Modified</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for schema in schemas %}
+            <tr>
+                <td>{{ schema.id }}</td>
+                <td><a href="{% url 'schema-detail' pk=schema.id %}">{{ schema.name }}</a></td>
+                <td>{{ schema.updated_at }}</td>
+                <td><a href="{% url 'schema-update' pk=schema.id %}">Edit</a>&nbsp;<a href="{% url 'schema-delete' pk=schema.id %}" class="text-danger">Delete</a></td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

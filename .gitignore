@@ -1,0 +1,9 @@
+venv
+lib
+lib64
+pyvenv.cfg
+bin
+.idea
+media
+celerybeat-schedule.db
+celerybeat-schedule
